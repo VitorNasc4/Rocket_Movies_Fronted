@@ -46,11 +46,14 @@ export function NewMovie() {
     if (!description) {
       return alert("Preencha a descrição antes de salvar")
     }
+    if (!tags) {
+      return alert("Cadastre uma tag com o gênero do filme")
+    }
     if (newTag) {
       return alert("Cadastre a tag antes de enviar")
     }
 
-    await api.post("/movies_notes", {title, rating, description, tags})
+    await api.post("/movies_notes", { title, rating, description, tags })
 
     alert("Filme cadastrado com sucesso")
 
@@ -74,7 +77,7 @@ export function NewMovie() {
         </section>
 
         <section className="tags">
-          <h2>Marcadores</h2>
+          <h2>Gênero</h2>
           <div className="Tagbackground">
             {
               tags.map((tag, index) => <Tags
@@ -96,7 +99,7 @@ export function NewMovie() {
 
         <section className="buttons">
           <Button title={"Exlcuir Filme"} id="buttonOne" />
-          <Button title={"Salvar Alterações"} onClick={handleNewMovie}/>
+          <Button title={"Salvar Alterações"} onClick={handleNewMovie} />
         </section>
       </main>
 
