@@ -45,7 +45,7 @@ export function Signup() {
         <h2>Crie sua conta</h2>
 
         <form>
-          <Input placeholder={"Nome"} icon={FiUser} autocomplete={"none"} onChange={e => setName(e.target.value)}/>
+          <Input placeholder={"Nome"} icon={FiUser}autoComplete={"none"} onChange={e => setName(e.target.value)}/>
           <Input placeholder={"E-mail"} icon={FiMail} onChange={e => setEmail(e.target.value)}/>
           <Input placeholder={"Senha"} icon={FiLock} onChange={e => setPassword(e.target.value)} type="password" />
           <Button title={"Cadastrar"} onClick={handleSignup} />

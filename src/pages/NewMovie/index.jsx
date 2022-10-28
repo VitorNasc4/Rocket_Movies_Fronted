@@ -42,15 +42,17 @@ export function NewMovie() {
     }
     if (!rating) {
       return alert("Preencha a nota antes de salvar")
+    } else if (rating > 5) {
+      return alert("A nota deve ser entre 0 e 5")
     }
     if (!description) {
       return alert("Preencha a descrição antes de salvar")
     }
-    if (!tags) {
-      return alert("Cadastre uma tag com o gênero do filme")
-    }
     if (newTag) {
       return alert("Cadastre a tag antes de enviar")
+    }
+    if (tags.length == 0) {
+      return alert("Cadastre uma tag com o gênero do filme")
     }
 
     await api.post("/movies_notes", { title, rating, description, tags })
@@ -70,7 +72,7 @@ export function NewMovie() {
 
           <section>
             <Input placeholder={"Título"} onChange={(e) => setTitle(e.target.value)} />
-            <Input placeholder={"Sua nota (de 0 a 5)"} onChange={(e) => setRating(e.target.value)} />
+            <Input type="number" min="0" max="5" placeholder={"Sua nota (de 0 a 5)"} onChange={(e) => setRating(e.target.value)} />
           </section>
           <TextArea rows={"7"} placeholder={"Observações"} onChange={(e) => setDescription(e.target.value)} />
 
